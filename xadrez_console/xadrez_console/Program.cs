@@ -9,6 +9,9 @@ namespace xadrez_console
         {
             Position pos = new Position(3, 4);
             Console.WriteLine(pos);
+
+            Board board = new Board(8, 8);
+            Console.WriteLine("Board created with " + board.rows + " rows and " + board.columns + " columns.");
         }
     }
 }
