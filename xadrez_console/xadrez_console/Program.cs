@@ -18,6 +18,9 @@ namespace chess_console
                 board.placePiece(new Rook(board, Color.Black), new Position(0, 0));
                 //board.placePiece(new King(board, Color.White), new Position(0, 0));
 
+                board.placePiece(new Rook(board, Color.White), new Position(4, 2));
+                board.placePiece(new Rook(board, Color.White), new Position(6, 3));
+
                 Screen.printBoard(board);
 
                 PositionChess position = new PositionChess('a', 1);
