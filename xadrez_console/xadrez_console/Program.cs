@@ -12,6 +12,8 @@ namespace xadrez_console
 
             Board board = new Board(8, 8);
             Console.WriteLine("Board created with " + board.rows + " rows and " + board.columns + " columns.");
+
+            Screen.printBoard(board);
         }
     }
 }
