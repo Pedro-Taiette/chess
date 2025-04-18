@@ -15,5 +15,9 @@
             moveCount = 0;
         }   
 
+        public void increaseMoveCount()
+        {
+            moveCount++;
+        }
     }
 }

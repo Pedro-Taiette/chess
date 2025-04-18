@@ -2,12 +2,12 @@
 
 namespace chess
 {
-    class PositionChess
+    class ChessPosition
     {
         public char column { get; set; }
         public int row { get; set; }
 
-        public PositionChess(char column, int row)
+        public ChessPosition(char column, int row)
         {
             this.column = column;
             this.row = row;

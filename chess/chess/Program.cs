@@ -10,22 +10,21 @@ namespace chess_console
         {
             try
             {
-                Board board = new Board(8, 8);
+                ChessMatch chessMatch = new ChessMatch();
 
-                Console.WriteLine("Placing a piece at position (3, 4).");
-                board.placePiece(new Rook(board, Color.Black), new Position(3, 4));
-                board.placePiece(new Rook(board, Color.Black), new Position(0, 0));
-                //board.placePiece(new King(board, Color.White), new Position(0, 0));
+                while (!chessMatch.finished)
+                {
+                    Console.Clear();
+                    Screen.printBoard(chessMatch.board);
+                    Console.Write("Origin: ");
+                    Position origin = Screen.readChessPosition().toPosition();
+                    Console.Write("Target: ");
+                    Position target = Screen.readChessPosition().toPosition();
 
-                board.placePiece(new Rook(board, Color.White), new Position(4, 2));
-                board.placePiece(new Rook(board, Color.White), new Position(6, 3));
+                    chessMatch.executeMove(origin, target);
+                }
 
-                Screen.printBoard(board);
-
-                PositionChess position = new PositionChess('a', 1);
-                Console.WriteLine("PositionChess: " + position);
-                Console.WriteLine("PositionChess to Position: " + position.toPosition());
-
+                Screen.printBoard(chessMatch.board);
             }
             catch (BoardException e)
             {

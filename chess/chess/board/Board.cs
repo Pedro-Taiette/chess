@@ -57,5 +57,17 @@
             piece.position = position;
         }
 
+        public Piece removePiece(Position position)
+        {
+            if (piece(position) == null)
+            {
+                return null;
+            }
+
+            Piece temp = piece(position);
+            temp.position = null;
+            pieces[position.row, position.col] = null;
+            return temp;
+        }
     }
 }
