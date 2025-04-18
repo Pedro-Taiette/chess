@@ -1,6 +1,6 @@
 ﻿using board;
 
-namespace chess_console.screen
+namespace screen
 {
     class Screen
     {

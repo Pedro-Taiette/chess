@@ -1,5 +1,5 @@
 ﻿using board;
-using chess_console.screen;
+using screen;
 using chess;
 using System;
 
@@ -16,9 +16,14 @@ namespace chess_console
                 Console.WriteLine("Placing a piece at position (3, 4).");
                 board.placePiece(new Rook(board, Color.Black), new Position(3, 4));
                 board.placePiece(new Rook(board, Color.Black), new Position(0, 0));
-                board.placePiece(new King(board, Color.White), new Position(0, 0));
+                //board.placePiece(new King(board, Color.White), new Position(0, 0));
 
                 Screen.printBoard(board);
+
+                PositionChess position = new PositionChess('a', 1);
+                Console.WriteLine("PositionChess: " + position);
+                Console.WriteLine("PositionChess to Position: " + position.toPosition());
+
             }
             catch (BoardException e)
             {
