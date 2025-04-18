@@ -17,5 +17,15 @@
         {
             return pieces[row, column];
         }
+
+        public void placePiece(Piece piece, Position position)
+        {
+            if (piece.position != null)
+            {
+                pieces[piece.position.row, piece.position.col] = null;
+            }
+            pieces[position.row, position.col] = piece;
+            piece.position = position;
+        }
     }
 }

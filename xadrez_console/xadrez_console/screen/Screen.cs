@@ -1,6 +1,6 @@
 ﻿using board;
 
-namespace xadrez_console
+namespace chess_console.screen
 {
     class Screen
     {
