@@ -9,20 +9,25 @@ namespace chess_console
     {
         static void Main(string[] args)
         {
-            Position pos = new Position(3, 4);
-            Console.WriteLine(pos);
+            try
+            {
+                Board board = new Board(8, 8);
 
-            Board board = new Board(8, 8);
-            Console.WriteLine("Board created with " + board.rows + " rows and " + board.columns + " columns.");
+                Console.WriteLine("Placing a piece at position (3, 4).");
+                board.placePiece(new Rook(board, Color.Black), new Position(3, 4));
+                board.placePiece(new Rook(board, Color.Black), new Position(0, 0));
+                board.placePiece(new King(board, Color.White), new Position(0, 0));
 
-            Screen.printBoard(board);
-
-            Console.WriteLine("Placing a piece at position (3, 4).");
-            board.placePiece(new Rook(board, Color.Black), new Position(3, 4));
-            board.placePiece(new Rook(board, Color.Black), new Position(0, 0));
-            board.placePiece(new King(board, Color.White), new Position(2, 3));
-
-            Screen.printBoard(board);
+                Screen.printBoard(board);
+            }
+            catch (BoardException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("An unexpected error occurred: " + e.Message);
+            }
         }
     }
 }

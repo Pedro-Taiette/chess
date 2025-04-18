@@ -18,14 +18,44 @@
             return pieces[row, column];
         }
 
+        public Piece piece(Position position)
+        {
+            return pieces[position.row, position.col];
+        }
+
+        public bool existPiece(Position position)
+        {
+            validatePosition(position); 
+            return piece(position) != null;
+        }
+
+        public bool isValidPosition(Position position)
+        {
+            if (position.row < 0 || position.row >= rows || position.col < 0 || position.col >= columns)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public void validatePosition(Position position)
+        {
+            if (!isValidPosition(position))
+            {
+                throw new BoardException("Invalid position: " + position);
+            }
+        }
+
         public void placePiece(Piece piece, Position position)
         {
-            if (piece.position != null)
+            if (existPiece(position))
             {
-                pieces[piece.position.row, piece.position.col] = null;
+                throw new BoardException("There is already a piece at position: " + position);
             }
+
             pieces[position.row, position.col] = piece;
             piece.position = position;
         }
+
     }
 }
